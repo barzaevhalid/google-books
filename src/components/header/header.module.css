@@ -1,0 +1,39 @@
+.header {
+    /* background: rgb(46, 59, 115);
+    background: linear-gradient(0deg, rgba(46, 59, 115, 1) 0%, rgba(38, 36, 31, 1) 100%); */
+    background-image: url('https://cdn.pixabay.com/photo/2020/05/12/11/07/tulip-5162445_960_720.jpg');
+    background-position: center;
+    box-shadow: -1px -5px 16px 12px rgba(34, 60, 80, 0.2);
+    padding: 30px 0;
+    color: white;
+    text-align: center;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 450px;
+}
+
+.btn__search {
+    line-height: 20px;
+    border: none;
+}
+
+.header__form {}
+
+.sort {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.search__input {
+    width: 300px;
+    border-radius: 2px;
+    border: none;
+    line-height: 20px;
+}
+
+.sort_item {
+    width: 200px;
+}

@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+
+}
+
+.img {
+    width: 50%;
+    box-shadow: 11px 15px 8px 3px rgba(34, 60, 80, 0.2);
+
+}
+
+.img__wrapper {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    background-color: rgba(128, 128, 128, 0.183);
+    padding-top: 30px;
+}
+
+.content__wrapper {
+    padding: 30px;
+    width: 50%;
+}
+
+.author {
+    color: grey;
+    border-bottom: 1px solid grey;
+}
+
+.description {
+    border: 1px solid rgba(128, 128, 128, 0.44);
+    padding: 5px 10px;
+}
