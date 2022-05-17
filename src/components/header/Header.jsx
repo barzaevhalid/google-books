@@ -11,30 +11,33 @@ const Header = () => {
     const [select, setSelect] = useState('')
     const href = window.location.href.split('#')[0]
 
-
     const params = href.split('?')[1]?.split('&')?.reduce((acc, str) => {
         const values = str.split('=')
         acc[values[0]] = values[1]
 
         return acc
     }, {})
-
+    console.log(select);
 
     useEffect(() => {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${params?.select || 'all'}&${search}&key=${key}&maxResults=40`)
             .then(data => data.json())
             .then(data => dispatch(searchAction(data)))
             .catch(e => console.log(e))
+        setSelect(params.select)
     }, [])
 
 
 
+
+
     const handleSelect = (e) => {
-        setSelect(e.target.value)
-        console.log(e.target.value, 'value');
         dispatch(categoriesAction(select))
 
         window.location.href = `/?select=${e.target.value}`
+        console.log(params)
+        console.log(params.select)
+
 
     }
     const handleSearch = (e) => {
@@ -66,8 +69,9 @@ const Header = () => {
                         <div >
                             <span>Categories</span>
                             <select className={s.sort_item}
-                                onChange={(e) => handleSelect(e)}>
-                                <option >all</option>
+                                onChange={(e) => handleSelect(e)}
+                                value={select}>
+                                <option>all</option>
                                 <option>art</option>
                                 <option>computers</option>
                                 <option>history</option>
