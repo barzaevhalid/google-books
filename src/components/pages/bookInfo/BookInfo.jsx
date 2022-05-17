@@ -7,7 +7,7 @@ const BookInfo = ({ id }) => {
     const book = data.books.find(person => person.id === id);
     const { thumbnail = 'https://englex.ru/app/uploads/ways-to-say-no-in-english.png' } = book.volumeInfo.imageLinks;
     const { description = 'Нет данных', title = 'Нет данных', authors = ['Нет данных'], categories = ['Нет данных'] } = book.volumeInfo
-
+    console.log(book);
     return (
         <div>
             <div className={s.wrapper}>

@@ -3,7 +3,8 @@ import s from './header.module.css'
 import { searchAction, categoriesAction } from "../../actions/searchAction";
 import { useDispatch, useSelector } from "react-redux";
 
-const key = "AIzaSyBERB_wexbIPyVpUFayQ10UBPoGxsroAh0";
+const key = process.env
+console.log(key)
 
 const Header = () => {
     const dispatch = useDispatch()
