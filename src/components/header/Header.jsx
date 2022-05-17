@@ -37,9 +37,6 @@ const Header = () => {
         dispatch(categoriesAction(select))
 
         window.location.href = `/?select=${e.target.value}`
-        console.log(params)
-        console.log(params.select)
-
 
     }
     const handleSearch = (e) => {

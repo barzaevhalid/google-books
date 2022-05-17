@@ -13,7 +13,7 @@ const Main = ({ infoId }) => {
                     data.books.map((item) => {
                         return <div
                             key={item.id}>
-                            <Link to='bookInfo' onClick={() => infoId(item.id)}>{<Book item={item} />}</Link>
+                            <Link to={`/bookInfo/${item.id}`} onClick={() => infoId(item.id)}>{<Book item={item} />}</Link>
                         </div>
                     }) : null}
             </div>

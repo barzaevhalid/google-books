@@ -17,7 +17,7 @@ const App = () => {
            <Header/>
           <Routes>
               <Route path='' element={ <Main infoId={infoId} />}/>
-              <Route path='bookInfo' element={ <BookInfo id={bookId}/>}/>
+              <Route path='bookInfo/:id' element={ <BookInfo id={bookId}/>}/>
           </Routes>
        </div>
     );

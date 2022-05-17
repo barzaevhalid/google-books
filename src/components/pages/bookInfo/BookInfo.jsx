@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import s from './bookInfo.module.css'
-const BookInfo = ({ id }) => {
+const BookInfo = () => {
     const data = useSelector(state => state)
-    // const book = data.find(index)
-    const book = data.books.find(person => person.id === id);
-    const { thumbnail = 'https://englex.ru/app/uploads/ways-to-say-no-in-english.png' } = book.volumeInfo.imageLinks;
+    const id = useParams('id')
+    console.log(id.id);
+
+    const book = data.books.find(person => person.id === id.id);
+    const { thumbnail = 'https://englex.ru/app/uploads/ways-to-say-no-in-english.png' } = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks : 'Нет данных';
     const { description = 'Нет данных', title = 'Нет данных', authors = ['Нет данных'], categories = ['Нет данных'] } = book.volumeInfo
-    console.log(book);
+
     return (
         <div>
             <div className={s.wrapper}>
