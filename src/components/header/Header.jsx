@@ -3,13 +3,13 @@ import s from './header.module.css'
 import { searchAction, categoriesAction } from "../../actions/searchAction";
 import { useDispatch, useSelector } from "react-redux";
 
-const key = process.env
-console.log(key)
+const key = process.env.REACT_APP_API_KEY
+
 
 const Header = () => {
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
-    const [select, setSelect] = useState('')
+    const [select, setSelect] = useState('all')
     const href = window.location.href.split('#')[0]
 
     const params = href.split('?')[1]?.split('&')?.reduce((acc, str) => {
@@ -18,13 +18,14 @@ const Header = () => {
 
         return acc
     }, {})
-    console.log(select);
+
 
     useEffect(() => {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${params?.select || 'all'}&${search}&key=${key}&maxResults=40`)
             .then(data => data.json())
             .then(data => dispatch(searchAction(data)))
             .catch(e => console.log(e))
+
         setSelect(params.select)
     }, [])
 
