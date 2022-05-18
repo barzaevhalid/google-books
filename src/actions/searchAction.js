@@ -6,3 +6,7 @@ export const categoriesAction = (data) => {
 
   return { type: 'CATEGORIES', payload: data };
 };
+
+export const searchPending = () => {
+  return {type: "PENDING"}
+}

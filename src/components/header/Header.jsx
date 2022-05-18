@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import s from './header.module.css'
-import { searchAction, categoriesAction } from "../../actions/searchAction";
+import { searchAction, categoriesAction, searchPending } from "../../actions/searchAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const key = process.env.REACT_APP_API_KEY
@@ -21,12 +21,14 @@ const Header = () => {
 
 
     useEffect(() => {
+        dispatch(searchPending())
         fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${params?.select || 'all'}&${search}&key=${key}&maxResults=40`)
             .then(data => data.json())
             .then(data => dispatch(searchAction(data)))
+            .then(data => console.log(data))
             .catch(e => console.log(e))
 
-        setSelect(params.select)
+        // setSelect(params.select)
     }, [])
 
 
@@ -45,7 +47,7 @@ const Header = () => {
 
     const onSearch = (e) => {
         e.preventDefault()
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${select}&${search}&key=${key}&maxResults=40`)
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=${select}&${search}&key=${key}&maxResults=40`)
             .then(data => data.json())
             .then(data => dispatch(searchAction(data)))
             .catch(e => console.log(e))

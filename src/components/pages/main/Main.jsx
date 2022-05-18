@@ -6,6 +6,11 @@ import Book from '../book/Book'
 import BookInfo from '../bookInfo/BookInfo'
 const Main = ({ infoId }) => {
     const data = useSelector(state => state)
+
+    if (data.loading) {
+        return <div>loading..</div>
+    }
+
     return (
         <>
             <div className={s.wrapper}>
