@@ -3,9 +3,9 @@ import s from './book.module.css'
 const Book = ({ item }) => {
 
     const {
-        authors = ['Нет данных'],
-        categories = 'Нет данных',
-        title = 'Нет данных'
+        authors = ['Нет авторов'],
+        categories = 'Нет категорий',
+        title = 'Нет заголовка'
     } = item.volumeInfo
 
     const { thumbnail = null, smallThumbnail = null } = item.volumeInfo.imageLinks || ''

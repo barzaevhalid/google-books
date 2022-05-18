@@ -16,7 +16,7 @@ const App = () => {
        <div className={s.container}>
            <Header/>
           <Routes>
-              <Route path='' element={ <Main infoId={infoId} />}/>
+              <Route path='' element={ <Main infoId={infoId} /> }/>
               <Route path='bookInfo/:id' element={ <BookInfo id={bookId}/>}/>
           </Routes>
        </div>

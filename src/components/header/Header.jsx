@@ -9,7 +9,6 @@ const key = process.env.REACT_APP_API_KEY
 const Header = () => {
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
-    const [select, setSelect] = useState('all')
     const href = window.location.href.split('#')[0]
 
     const params = href.split('?')[1]?.split('&')?.reduce((acc, str) => {
@@ -19,6 +18,7 @@ const Header = () => {
         return acc
     }, {})
 
+    const [select, setSelect] = useState(params?.select || 'all')
 
     useEffect(() => {
         dispatch(searchPending())
@@ -27,8 +27,10 @@ const Header = () => {
             .then(data => dispatch(searchAction(data)))
             .then(data => console.log(data))
             .catch(e => console.log(e))
+        setSelect(params?.select || 'all')
 
-        // setSelect(params.select)
+
+
     }, [])
 
 
@@ -71,23 +73,23 @@ const Header = () => {
                             <span>Categories</span>
                             <select className={s.sort_item}
                                 onChange={(e) => handleSelect(e)}
-                                value={select}>
+                                selected value={select}>
                                 <option>all</option>
                                 <option>art</option>
                                 <option>computers</option>
                                 <option>history</option>
                                 <option>medical</option>
-                                <option>poetry</option>
+                                <option >poetry</option>
                             </select>
                         </div>
-                        <div>
+                        {/* <div>
                             <span>Sorting by</span>
                             <select
                                 className={s.sort_item}
                             >
                                 <option></option>
                             </select>
-                        </div>
+                        </div> */}
                     </div>
                 </form>
             </div>

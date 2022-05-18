@@ -5,7 +5,7 @@ import s from './bookInfo.module.css'
 const BookInfo = (props) => {
 
     const key = process.env.REACT_APP_API_KEY
-    const data = useSelector(state => state)
+
     const id = useParams('id')
     const [bookInf, setBookInf] = useState(null)
     console.log(bookInf)
@@ -25,7 +25,7 @@ const BookInfo = (props) => {
             description = 'Нет текста'
         } = bookInf.volumeInfo
 
-        const { thumbnail } = bookInf.volumeInfo.imageLinks
+        const { thumbnail } = bookInf.volumeInfo.imageLinks || 'img'
 
         return (
             <div>
@@ -41,8 +41,6 @@ const BookInfo = (props) => {
 
             </div>
         );
-    } else {
-        return <div>Ничего нет</div>
     }
 
 
